@@ -1,6 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+/***
+ *
+ * Created A Server
+ * HMR - Hot Module Replacement
+ * File Watcher algorithm - C++
+ * BUNDLING
+ * MINIFY
+ * Cleaning our Code
+ * Dev abd Production Build
+ * Super Fast build algorithm
+ * Image Optimization
+ * Caching while development
+ * Compression
+ * Compatble with older version of browser
+ * HTTPS on dev
+ * port Number
+ * Consistent Hashing Algorithm
+ * Zero Config
+ *
+ *
+ *
+ * Transitive Dependencies
+ */
 const heading = React.createElement(
   "h1",
   {
@@ -62,3 +85,30 @@ const HeadingReact2 = () => (
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<HeadingReact2 />);
+
+// • Benefits of JSX
+// • Behind the Scenes of JSX
+// • Babel & parcel role in JSX Components
+// Functional Components
+// • Composing Components
+
+// Assignment
+
+// • What is JSX?
+// • Superpowers of JSX
+// • Role of type attribute in script tag? What options can I use there?
+// {TitleComponent} VS {<TitleComponent/>} VS {<Title Component></TitleComponent>} in JSX
+
+// Coding Assignment:
+// •Create a Nested header Element using React.createElement(h1, h2, h3 inside a div with class "title")
+// • Create the same element using JSX
+// • Create a functional component of the same with JSX
+// O Pass attributes into the tag in JSX
+// • Composition of Component(Add a component inside another)
+
+// {TitleComponent) VS (<Title Component/>} VS {<TitleComponent></TitleComponent>} in JSX
+// Create a Header Component from scratch using Functional Components with JSX
+// • Add a Logo on left
+// • Add a search bar in middle
+// O Add User icon on right
+// • Add CSS to make it look nice
