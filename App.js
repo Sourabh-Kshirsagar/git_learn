@@ -28,6 +28,37 @@ const container = React.createElement(
   [heading, heading1]
 );
 
+//functional components
+
+// multiple ways to write functional components
+
+const HeadingReact = () => {
+  return <h1>This is the Example of functional component</h1>;
+};
+
+const HeadingReact1 = () => {
+  return (
+    <div>
+      <HeadingReact />
+      {heading}
+      <h1>This is second way to write functional component</h1>
+      <h1>This is second way to write functional component</h1>
+      <h1>This is second way to write functional component</h1>
+    </div>
+  );
+};
+
+const HeadingReact2 = () => (
+  <div>
+    <HeadingReact />
+    {heading}
+    <HeadingReact1 />
+    <h1>This is second way to write functional component ...</h1>
+    <h1>This is second way to write functional component ...</h1>
+    <h1>This is second way to write functional component ... </h1>
+  </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(container);
+root.render(<HeadingReact2 />);
