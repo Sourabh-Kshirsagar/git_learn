@@ -119,6 +119,30 @@ const HeaderComponent = () => {
   );
 };
 
+//inline styling in react
+// const styleObj = {
+//   color: "red",
+// };
+
+// const styling = {
+//   color: "orange",
+// };
+
+// const Head = () => {
+//   return (
+//     <div>
+//       <h1 style={styleObj}>One Line with style</h1>
+//       <h1
+//         style={{
+//           color: "orange",
+//         }}
+//       >
+//         Other without style
+//       </h1>
+//     </div>
+//   );
+// };
+
 const restro = {
   image:
     "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg",
@@ -129,6 +153,7 @@ const restro = {
 
 const RestourantCards = () => {
   return (
+    //React Fragmane <>  use for to use more than one parent  </>
     <>
       <div className="container mt-5">
         <div className="card">
@@ -173,30 +198,3 @@ const AppLayout = () => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<AppLayout />);
-
-// • Benefits of JSX
-// • Behind the Scenes of JSX
-// • Babel & parcel role in JSX Components
-// Functional Components
-// • Composing Components
-
-// Assignment
-
-// • What is JSX?
-// • Superpowers of JSX
-// • Role of type attribute in script tag? What options can I use there?
-// {TitleComponent} VS {<TitleComponent/>} VS {<Title Component></TitleComponent>} in JSX
-
-// Coding Assignment:
-// •Create a Nested header Element using React.createElement(h1, h2, h3 inside a div with classNam "title")
-// • Create the same element using JSX
-// • Create a functional component of the same with JSX
-// O Pass attributes into the tag in JSX
-// • Composition of Component(Add a component inside another)
-
-// {TitleComponent) VS (<Title Component/>} VS {<TitleComponent></TitleComponent>} in JSX
-// Create a Header Component from scratch using Functional Components with JSX
-// • Add a Logo on left
-// • Add a search bar in middle
-// O Add User icon on right
-// • Add CSS to make it look nice
