@@ -1,3 +1,15 @@
 #container {
   background-color: red;
 }
+.right-side-nav {
+  justify-content: right;
+}
+.logo-width {
+  width: 200px;
+}
+.card {
+  width: 18rem;
+}
+.display-setting {
+  display: flex;
+}
