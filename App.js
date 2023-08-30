@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.css";
+import { arguments } from "commander";
+import { roundFloat32 } from "msgpackr";
 
 /***
  *
@@ -143,25 +145,86 @@ const HeaderComponent = () => {
 //   );
 // };
 
-const restro = {
-  image:
-    "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg",
-  name: "Restaurant Name",
-  text: "some location some location some location some location ",
-  rating: "3.6",
-};
+const restro = [
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1693170509455-f28aefcd1005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
+    title: "Card One Serene Lake",
+    description: "Card One A peaceful lake surrounded by lush greenery.",
+    rating: 4.7,
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1682686581427-7c80ab60e3f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
+    title: "Card Two Urban Sunset",
+    description: "Card Two The sun setting behind a city skyline.",
+    rating: 4.5,
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1692545934134-e2ad96814bf3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    title: "Card Three Majestic Mountains",
+    description: "Card Three Tall mountains with snow-capped peaks.",
+    rating: 4.9,
+  },
+];
 
-const RestourantCards = () => {
+// const RestourantCards = (props) => {
+// console.log(props);
+const RestourantCards = ({ imageUrl, title, description, rating }) => {
+  // const { imageUrl, title, description, rating } = RestourantCards;
   return (
     //React Fragmane <>  use for to use more than one parent  </>
     <>
       <div className="container mt-5">
-        <div className="card">
-          <img src={restro.image} className="card-img-top" alt="..."></img>
+        {/* get the data directly from the API with object. method */}
+        {/* <div className="card">
+          <img
+            src={restro[0].imageUrl}
+            className="card-img-top"
+            alt="..."
+          ></img>
           <div className="card-body">
-            <h5 className="card-title">{restro.name}</h5>
-            <p className="card-text">{restro.text}</p>
-            <p className="card-text">{restro.rating} Stars</p>
+            <h5 className="card-title">{restro[0].title}</h5>
+            <p className="card-text">{restro[0].description}</p>
+            <p className="card-text">{restro[0].rating} Stars</p>
+          </div>
+        </div> */}
+
+        {/* With the help of props or by pass the props keyword form the component call */}
+        {/* <div className="card">
+          <img
+            src={props.RestourantCards.imageUrl}
+            className="card-img-top"
+            alt="..."
+          ></img>
+          <div className="card-body">
+            <h5 className="card-title">{props.RestourantCards.title}</h5>
+            <p className="card-text">{props.RestourantCards.description}</p>
+            <p className="card-text">{props.RestourantCards.rating} Stars</p>
+          </div>
+        </div> */}
+
+        {/* again we destructure the data or the variable to the value names */}
+        {/* <div className="card">
+          <img
+            src={RestourantCards.imageUrl}
+            className="card-img-top"
+            alt="..."
+          ></img>
+          <div className="card-body">
+            <h5 className="card-title">{RestourantCards.title}</h5>
+            <p className="card-text">{RestourantCards.description}</p>
+            <p className="card-text">{RestourantCards.rating} Stars</p>
+          </div>
+        </div> */}
+
+        <div className="card">
+          <img src={imageUrl} className="card-img-top" alt="..."></img>
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+            <p className="card-text">{description}</p>
+            <p className="card-text">{rating} Stars</p>
           </div>
         </div>
       </div>
@@ -169,20 +232,59 @@ const RestourantCards = () => {
   );
 };
 
+// What are param and arguments
+// Ex:
+
+// function fn (param1, param2){
+//   logical code with received param
+// }
+
+// fn ("xyz", "abc");
+// function call with passing some argument which help the function code to roundFloat32
+// This is param and argu
+
 const BodyComponent = () => {
   return (
     <>
       <div className="display-setting container">
-        <RestourantCards />
-        <RestourantCards />
-        <RestourantCards />
+        {/* {RestourantCards(restro[2])}  we can pass the props like this also because at the end its a normal fun */}
+        {/* <RestourantCards
+          imageUrl={restro[0].imageUrl}
+          title={restro[0].title}
+          description={restro[0].description}
+          rating={restro[0].rating}
+        />
+        <RestourantCards
+          imageUrl={restro[1].imageUrl}
+          title={restro[1].title}
+          description={restro[1].description}
+          rating={restro[1].rating}
+        />
+        <RestourantCards
+          imageUrl={restro[2].imageUrl}
+          title={restro[2].title}
+          description={restro[2].description}
+          rating={restro[2].rating}
+        /> */}
+
+        {/* instead of doing above code we can wrote like this also in this way we got all the data from the data object */}
+
+        {/* <RestourantCards {...restro[0]} />
+        <RestourantCards {...restro[1]} />
+        <RestourantCards {...restro[2]} /> */}
+
+        {/* now here we have to use map function to get all the data at a time  */}
+
+        {restro.map((restData) => {
+          return <RestourantCards {...restData} />;
+        })}
       </div>
     </>
   );
 };
 
 const FooterComponent = () => {
-  return <div classNam="container-fluid">Footer</div>;
+  return <div className="container-fluid">Footer</div>;
 };
 
 const AppLayout = () => {
