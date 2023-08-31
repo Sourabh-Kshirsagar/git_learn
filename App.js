@@ -152,6 +152,7 @@ const restro = [
     title: "Card One Serene Lake",
     description: "Card One A peaceful lake surrounded by lush greenery.",
     rating: 4.7,
+    id: "1",
   },
   {
     imageUrl:
@@ -159,6 +160,7 @@ const restro = [
     title: "Card Two Urban Sunset",
     description: "Card Two The sun setting behind a city skyline.",
     rating: 4.5,
+    id: "2",
   },
   {
     imageUrl:
@@ -166,6 +168,7 @@ const restro = [
     title: "Card Three Majestic Mountains",
     description: "Card Three Tall mountains with snow-capped peaks.",
     rating: 4.9,
+    id: "3",
   },
 ];
 
@@ -247,6 +250,7 @@ const BodyComponent = () => {
   return (
     <>
       <div className="display-setting container">
+        {/* <RestourantCards /> */}
         {/* {RestourantCards(restro[2])}  we can pass the props like this also because at the end its a normal fun */}
         {/* <RestourantCards
           imageUrl={restro[0].imageUrl}
@@ -276,7 +280,9 @@ const BodyComponent = () => {
         {/* now here we have to use map function to get all the data at a time  */}
 
         {restro.map((restData) => {
-          return <RestourantCards {...restData} />;
+          // No key <<  Index key << unique key
+          // No key is not acceptable, use index key when you did'nt have any unique key
+          return <RestourantCards {...restData} key={restData.id} />;
         })}
       </div>
     </>
