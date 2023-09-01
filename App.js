@@ -175,6 +175,7 @@ const restro = [
 // const RestourantCards = (props) => {
 // console.log(props);
 const RestourantCards = ({ imageUrl, title, description, rating }) => {
+  // const RestourantCards = ({RestourantCards }) => {
   // const { imageUrl, title, description, rating } = RestourantCards;
   return (
     //React Fragmane <>  use for to use more than one parent  </>
