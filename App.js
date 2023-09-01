@@ -307,3 +307,20 @@ const AppLayout = () => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<AppLayout />);
+
+// Class 04 Assignment Questions
+
+//
+
+// - Is JSX mandatory for React?
+// - Is ES6 mandatory for React?
+// - {TitleComponent) VS {<Title Component/>} VS {<Title Component></TitleComponent>} in JSX
+// - How can I write comments in JSX?
+// - What is <React. Fragment> </React.Fragment> and <></> ?
+// - What is Virtual DOM?
+// - What is Reconciliation in React?
+// - What is React Fiber?
+// - Why we need keys in React? When do we need keys in React?
+// - Can we use index as keys in React?
+// - What is props in React? Ways to
+// - What is a Config Driven UI ?
