@@ -1,3 +1,5 @@
+import "bootstrap/dist/css/bootstrap.css";
+
 const HeaderComponent = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
