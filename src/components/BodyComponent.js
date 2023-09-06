@@ -5,14 +5,15 @@ import { restro } from "../constants";
 import RestourantCards from "./RestourantCards";
 import { useState } from "react";
 
-function filterData(SearchTxt, restroData) {
-  return restroData.filter((rest) =>
-    restroData.description.includes(SearchTxt)
+function filterDataa(SearchTxt, restroData) {
+  const filterData1 = restroData.filter((rest) =>
+    rest.description.includes(SearchTxt)
   );
+  return filterData1;
 }
 
 const BodyComponent = () => {
-  const [SearchTxt, setSearchTxt] = useState();
+  const [SearchTxt, setSearchTxt] = useState("");
   const [restroData, setrestData] = useState(restro);
 
   // const [searchClick, setSearchClick] = useState("false");
@@ -35,7 +36,7 @@ const BodyComponent = () => {
             // used to filter our data it is with two param one is the text that is enterd in the input
             // box and other is the data object
 
-            const data = filterData(SearchTxt, restroData);
+            const data = filterDataa(SearchTxt, restroData);
             setrestData(data);
           }}
         >
