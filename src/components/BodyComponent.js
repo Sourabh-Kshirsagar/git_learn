@@ -66,4 +66,7 @@ const BodyComponent = () => {
 
 export default BodyComponent;
 
-// push to class 05 form Home
+// What is the difference between Named Export, Default export and * as export?
+// • What is the importance of config.js file
+// • What are React Hooks?
+// • Why do we need a useState Hook?
