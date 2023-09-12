@@ -1,13 +1,10 @@
-// This is the way how we have named import form any file
 import { restro } from "../constants";
-
-// This is the defaultu import form the file where it is created or defined
 import RestourantCards from "./RestourantCards";
 import { useState } from "react";
 
 function filterDataa(SearchTxt, restroData) {
   const filterData1 = restroData.filter((rest) =>
-    rest.description.includes(SearchTxt)
+    rest.description.tolowercase().includes(SearchTxt.tolowercase())
   );
   return filterData1;
 }
@@ -15,8 +12,6 @@ function filterDataa(SearchTxt, restroData) {
 const BodyComponent = () => {
   const [SearchTxt, setSearchTxt] = useState("");
   const [restroData, setrestData] = useState(restro);
-
-  // const [searchClick, setSearchClick] = useState("false");
   return (
     <>
       <div className="">
@@ -32,27 +27,12 @@ const BodyComponent = () => {
         <button
           type="button"
           onClick={() => {
-            // Here we need to filter the data that's why we call a function here which is
-            // used to filter our data it is with two param one is the text that is enterd in the input
-            // box and other is the data object
-
             const data = filterDataa(SearchTxt, restroData);
             setrestData(data);
           }}
         >
           Search
         </button>
-        {/* <h1>{searchClick}</h1>
-        <button
-          type="button"
-          onClick={() => {
-            if (searchClick == "false") {
-              setSearchClick("true");
-            } else setSearchClick("false");
-          }}
-        >
-          Search Now
-        </button> */}
       </div>
 
       <div className="display-setting container">
@@ -65,8 +45,3 @@ const BodyComponent = () => {
 };
 
 export default BodyComponent;
-
-// What is the difference between Named Export, Default export and * as export?
-// • What is the importance of config.js file
-// • What are React Hooks?
-// • Why do we need a useState Hook?
