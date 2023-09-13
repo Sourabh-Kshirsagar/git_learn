@@ -1,7 +1,8 @@
 import { restro } from "../constants";
 import RestourantCards from "./RestourantCards";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+// This function gives the filterd list of cards and filterData1 returnn this data at functin all
 function filterDataa(SearchTxt, restroData) {
   const filterData1 = restroData.filter((rest) =>
     rest.description.tolowercase().includes(SearchTxt.tolowercase())
@@ -12,6 +13,7 @@ function filterDataa(SearchTxt, restroData) {
 const BodyComponent = () => {
   const [SearchTxt, setSearchTxt] = useState("");
   const [restroData, setrestData] = useState(restro);
+  useEffect(() => {});
   return (
     <>
       <div className="">
