@@ -1,13 +1,14 @@
-const RestourantCards = ({ imageUrl, title, description, rating }) => {
+import "bootstrap/dist/css/bootstrap.css";
+
+const RestourantCards = ({ url, title, id }) => {
   return (
     <>
-      <div className="container mt-5">
-        <div className="card">
-          <img src={imageUrl} className="card-img-top" alt="..."></img>
+      <div className="row col-sm-12 col-lg-3 col-md-3 mb-3">
+        <div className="card card-style">
+          <img className="card-img-top mt-3" src={url} alt="Card image cap" />
           <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{description}</p>
-            <p className="card-text">{rating} Stars</p>
+            <h5 className="card-title">{id}</h5>
+            <p className="card-text">{title}</p>
           </div>
         </div>
       </div>

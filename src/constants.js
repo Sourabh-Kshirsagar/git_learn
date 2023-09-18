@@ -1,29 +1,23 @@
-export const IMG_CDN =
-  "https://images.unsplash.com/photo-1693170509455-f28aefcd1005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60";
-
 export const restro = [
   {
-    imageUrl:
-      "https://images.unsplash.com/photo-1693170509455-f28aefcd1005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
-    title: "Card One Serene Lake",
-    description: "Card One A peaceful lake surrounded by lush greenery.",
-    rating: 4.7,
-    id: "1",
+    albumId: 1,
+    id: 1,
+    title: "accusamus beatae ad facilis cum similique qui sunt",
+    url: "https://via.placeholder.com/600/92c952",
+    thumbnailUrl: "https://via.placeholder.com/150/92c952",
   },
   {
-    imageUrl:
-      "https://images.unsplash.com/photo-1682686581427-7c80ab60e3f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
-    title: "Card Two Urban Sunset",
-    description: "Card Two The sun setting behind a city skyline.",
-    rating: 4.5,
-    id: "2",
+    albumId: 1,
+    id: 2,
+    title: "reprehenderit est deserunt velit ipsam",
+    url: "https://via.placeholder.com/600/771796",
+    thumbnailUrl: "https://via.placeholder.com/150/771796",
   },
   {
-    imageUrl:
-      "https://images.unsplash.com/photo-1692545934134-e2ad96814bf3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    title: "Card Three Majestic Mountains",
-    description: "Card Three Tall mountains with snow-capped peaks.",
-    rating: 4.9,
-    id: "3",
+    albumId: 1,
+    id: 3,
+    title: "officia porro iure quia iusto qui ipsa ut modi",
+    url: "https://via.placeholder.com/600/24f355",
+    thumbnailUrl: "https://via.placeholder.com/150/24f355",
   },
 ];

@@ -1,7 +1,13 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
 
+const loggedinUserr = () => {
+  //Authentication API called Here
+  return false;
+};
+
 const HeaderComponent = () => {
+  const [isLoggedIn, setisLoggedIn] = useState("true");
   //Here we create a state variable to change the default value at runtime
   // const [Title, setTitle] = useState("this is the title");
   // console.log("It is Randers whole Component");
@@ -58,6 +64,21 @@ const HeaderComponent = () => {
             </ul>
           </div>
         </div>
+        {isLoggedIn ? (
+          <button
+            className="btn btn-primary"
+            onClick={() => setisLoggedIn(false)}
+          >
+            LogIn
+          </button>
+        ) : (
+          <button
+            className="btn btn-primary"
+            onClick={() => setisLoggedIn(true)}
+          >
+            LogOut
+          </button>
+        )}
       </nav>
     </>
   );

@@ -8,8 +8,97 @@
   width: 200px;
 }
 .card {
-  width: 18rem;
+  width: 8rem;
+  margin-left: 1rem;
 }
-.display-setting {
+.Align_Data {
   display: flex;
+  flex-wrap: wrap;
+}
+.Align_Data div {
+  margin-right: 1rem;
+}
+.mr-3 {
+  margin-right: 15px;
+}
+.mr-5 {
+  margin-right: 1rem;
+}
+@media (width >= 992px) {
+  .col-lg-3 {
+    flex: none;
+    width: 24% !important;
+  }
+}
+
+/* shimmer UI CSS */
+.card-01 {
+  position: relative;
+  -webkit-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 6px;
+  height: 500px;
+  overflow: hidden;
+  width: 350px;
+  margin: 40px auto;
+}
+
+.shimmerBG {
+  animation-duration: 2.2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: #cbcbcb;
+  background: linear-gradient(to right, #d1d1d1 16%, #d1d1d1 36%, #d1d1d1 66%);
+  background-size: 1200px 100%;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+.media {
+  height: 200px;
+}
+
+.p-32 {
+  padding: 32px;
+}
+
+.title-line {
+  height: 24px;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 20px;
+}
+
+.content-line {
+  height: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.end {
+  width: 40%;
+}
+
+.m-t-24 {
+  margin-top: 24px;
 }
