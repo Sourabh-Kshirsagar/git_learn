@@ -50,15 +50,15 @@ const BodyComponent = () => {
   // if restro has data then load actual data to UI
 
   // this is know as early return
-  if (!AllRestroData) return null;
+  // if (!AllRestroData) return null;
 
   // this is for when we does'nt have any thing related to filtered data
-  if (filteredRestroData?.length == 0)
-    return (
-      <>
-        <h2>No Card Found !!</h2>
-      </>
-    );
+  // if (filteredRestroData?.length == 0)
+  //   return (
+  //     <>
+  //       <h2>No Card Found !!</h2>
+  //     </>
+  //   );
   return AllRestroData.length == 0 ? (
     <Shimmer />
   ) : (
@@ -99,3 +99,17 @@ const BodyComponent = () => {
 };
 
 export default BodyComponent;
+
+// Class Assignment
+
+// -What is a Microservice?
+// - What is Monolith architecture?
+// - What is the difference between Monolith and Microservice?
+// - Why do we need a useEffect Hook?
+// - What is Optional Chaining?
+// - What is Shimmer UI?
+// - What is the difference between JS expression and JS statement
+// - What is Conditional Rendering, explain with a code example
+// - What is CORS?
+// - What is async and await?
+// - What is the use of ‘const json = await data.json();" in getRestaurants()

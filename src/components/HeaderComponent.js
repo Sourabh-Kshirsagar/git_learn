@@ -7,7 +7,7 @@ const loggedinUserr = () => {
 };
 
 const HeaderComponent = () => {
-  const [isLoggedIn, setisLoggedIn] = useState("true");
+  const [isLoggedIn, setisLoggedIn] = useState("false");
   //Here we create a state variable to change the default value at runtime
   // const [Title, setTitle] = useState("this is the title");
   // console.log("It is Randers whole Component");
@@ -65,18 +65,18 @@ const HeaderComponent = () => {
           </div>
         </div>
         {isLoggedIn ? (
-          <button
+          <buttton
             className="btn btn-primary"
             onClick={() => setisLoggedIn(false)}
           >
-            LogIn
-          </button>
+            Login
+          </buttton>
         ) : (
           <button
             className="btn btn-primary"
             onClick={() => setisLoggedIn(true)}
           >
-            LogOut
+            Logout
           </button>
         )}
       </nav>
