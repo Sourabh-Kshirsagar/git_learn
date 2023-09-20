@@ -8,12 +8,8 @@ const loggedinUserr = () => {
 
 const HeaderComponent = () => {
   const [isLoggedIn, setisLoggedIn] = useState("false");
-  //Here we create a state variable to change the default value at runtime
-  // const [Title, setTitle] = useState("this is the title");
-  // console.log("It is Randers whole Component");
   return (
     <>
-      {/* <h1>{Title}</h1> */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="index.html">
@@ -22,9 +18,6 @@ const HeaderComponent = () => {
               src="https://intelliatechcom33628.zapwp.com/q:u/r:0/wp:1/w:1/u:https://intelliatech.com/wp-content/uploads/2023/07/logo-scaled.jpg"
             ></img>
           </a>
-          {/* on click of this button value will chagne from  this is the title to New app */}
-          {/* when we click on the button it trigger the setTitle function and set title will update the value of the local variable as it is a state variable */}
-          {/* <button onClick={() => setTitle("New app")}>Click</button> */}
           <button
             className="navbar-toggler"
             type="button"
