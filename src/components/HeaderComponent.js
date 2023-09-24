@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const loggedinUserr = () => {
   //Authentication API called Here
@@ -35,19 +36,19 @@ const HeaderComponent = () => {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
-                </a>
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Pricing
-                </a>
+                <Link className="nav-link" to="/contact">
+                  Contact
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">
@@ -58,12 +59,12 @@ const HeaderComponent = () => {
           </div>
         </div>
         {isLoggedIn ? (
-          <buttton
+          <button
             className="btn btn-primary"
             onClick={() => setisLoggedIn(false)}
           >
             Login
-          </buttton>
+          </button>
         ) : (
           <button
             className="btn btn-primary"

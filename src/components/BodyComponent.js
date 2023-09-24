@@ -3,7 +3,7 @@ import { restro } from "../constants";
 import RestourantCards from "./RestourantCards";
 import "bootstrap/dist/css/bootstrap.css";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "./Shimmer.js";
 
 function filterDataa(SearchTxt, AllRestroData) {
   const filterData1 = AllRestroData.filter((rest) =>
@@ -26,7 +26,7 @@ const BodyComponent = () => {
     setAllRestroData(json);
     setfilteredRestroData(json);
   }
-  if (!AllRestroData) return null;
+  // if (!AllRestroData) return null;
   return AllRestroData.length == 0 ? (
     <Shimmer />
   ) : (
