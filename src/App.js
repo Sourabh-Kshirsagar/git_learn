@@ -17,6 +17,8 @@ const AppLayout = () => {
     <>
       <HeaderComponent />
       <Outlet />
+      Here we use Outlet compoent of react-router-dom with this we can render
+      the children component of the createBrowserRouter
       <FooterComponent />
     </>
   );
