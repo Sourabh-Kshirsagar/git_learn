@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.css";
@@ -11,14 +11,15 @@ import About from "./components/About";
 // we import createBrowserRouter for the routing in our application for this we install a package named react-router-dom
 import Error from "./components/Error";
 import Contact from "./components/Contact";
+import PageDetails from "./components/PageDetails";
 
 const AppLayout = () => {
   return (
     <>
       <HeaderComponent />
       <Outlet />
-      Here we use Outlet compoent of react-router-dom with this we can render
-      the children component of the createBrowserRouter
+      {/* Here we use Outlet compoent of react-router-dom with this we can render
+      the children component of the createBrowserRouter */}
       <FooterComponent />
     </>
   );
@@ -47,6 +48,13 @@ const appRoute = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        // when we have to pass the configuration for dynamic rendering we have pass the configuration like this
+        // whatever we put in this id this will go as a param in PageDetails Component
+        path: "/PageDetails/:ids",
+        // Here the ID become come dynamically form the Component
+        element: <PageDetails />,
       },
     ],
   },
