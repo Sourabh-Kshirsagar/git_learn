@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const PageDetails = () => {
   // Here the useParams gives the id form the children of the createBrowserRouter
-  const { ids } = useParams();
+  const { SID } = useParams();
 
   const [pageData, setpageData] = useState(null);
   useEffect(() => {
@@ -20,8 +20,8 @@ const PageDetails = () => {
   return (
     <>
       <h2>Details of the above clicked Page : </h2>
-      <h3>Page ID = {ids}</h3>
-      <h3>Page ID = {pageData.id}</h3>
+      <h3>Page ID = {SID}</h3>
+      {/* <h3>Page ID = {pageData.id}</h3> */}
     </>
   );
 };
