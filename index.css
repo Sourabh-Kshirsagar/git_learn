@@ -102,3 +102,10 @@
 .m-t-24 {
   margin-top: 24px;
 }
+.D-flex {
+  display: flex;
+}
+.menu-items {
+  margin-left: 10rem;
+  margin-top: 3rem;
+}

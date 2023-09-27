@@ -52,7 +52,7 @@ const appRoute = createBrowserRouter([
       {
         // when we have to pass the configuration for dynamic rendering we have pass the configuration like this
         // whatever we put in this id this will go as a param in PageDetails Component
-        path: "/PageDetails/:ids",
+        path: "/PageDetails/:SID",
         // Here the ID become come dynamically form the Component
         element: <PageDetails />,
       },
