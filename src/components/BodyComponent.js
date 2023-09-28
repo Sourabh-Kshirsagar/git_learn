@@ -1,54 +1,62 @@
-import { async } from "regenerator-runtime";
-import { restro } from "../constants";
-import RestourantCards from "./RestourantCards";
-import "bootstrap/dist/css/bootstrap.css";
 import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import RestourantCards from "./RestourantCards";
 import Shimmer from "./Shimmer.js";
-
-function filterDataa(SearchTxt, AllRestroData) {
-  const filterData1 = AllRestroData.filter((rest) =>
-    rest.title?.toLowerCase()?.includes(SearchTxt?.toLowerCase())
-  );
-  return filterData1;
-}
+import { Link } from "react-router-dom";
+import PageDetails from "./PageDetails";
 
 const BodyComponent = () => {
-  const [SearchTxt, setSearchTxt] = useState("");
-  const [AllRestroData, setAllRestroData] = useState("");
-  const [filteredRestroData, setfilteredRestroData] = useState("");
+  const [searchTxt, setSearchTxt] = useState("");
+  const [allRestroData, setAllRestroData] = useState([]);
+  const [filteredRestroData, setFilteredRestroData] = useState([]);
 
   useEffect(() => {
     getRestro();
   }, []);
+  // use the useEffect to call the api
+
   async function getRestro() {
-    const data = await fetch("https://jsonplaceholder.typicode.com/photos");
-    const json = await data.json();
-    setAllRestroData(json);
-    setfilteredRestroData(json);
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7616375&lng=75.8893399&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await response.json();
+    const restaurantsData =
+      json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    // Here we go to the restaurant after that we will fetch the information from restaurantsData variable
+    setAllRestroData(restaurantsData);
+    setFilteredRestroData(restaurantsData);
+    // Here we set the data to the useState variable
+    // console.log(restaurantsData[19].info.name);
   }
-  // if (!AllRestroData) return null;
-  return AllRestroData.length == 0 ? (
-    <Shimmer />
-  ) : (
+
+  // filterFunction to filter the searched result and it will return the filtered result in the variable filteredData
+  function filterData(searchText, allRestroData) {
+    const filteredData = allRestroData.filter((rest) =>
+      rest?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
+    );
+    return filteredData;
+  }
+
+  return (
     <>
       <div className="container">
         <div className="row mb-3">
           <input
             className="mr-3 w-25 form-control mt-5"
             type="text"
-            placeholder="Seach Box"
-            value={SearchTxt}
-            onChange={(e) => {
-              setSearchTxt(e.target.value);
-            }}
+            placeholder="Search Box"
+            value={searchTxt}
+            onChange={(e) => setSearchTxt(e.target.value)}
           />
-
           <button
             className="btn w-25 mt-5 btn-primary ml-2"
             type="button"
             onClick={() => {
-              const data = filterDataa(SearchTxt, AllRestroData);
-              setfilteredRestroData(data);
+              // Here we call the filterData function with two argu searchTxt and allRestroData which giuves the searched value
+              // which is stored in variable filteredRestro and then set to filteredRestroData stateVariable
+              const filteredRestro = filterData(searchTxt, allRestroData);
+              setFilteredRestroData(filteredRestro);
             }}
           >
             Search
@@ -56,9 +64,22 @@ const BodyComponent = () => {
         </div>
       </div>
       <div className="display-setting container Align_Data">
-        {filteredRestroData.map((restData) => {
-          return <RestourantCards {...restData} key={restData.id} />;
-        })}
+        {filteredRestroData.length === 0 ? (
+          <Shimmer />
+        ) : (
+          // get the value from filteredRestroData to restaurant and map the data to the UI
+          filteredRestroData.map((restaurant) => (
+            // Now instead of direct render the component we gave the link to it and pass the Dynamic rauting
+            // with page name (PageDetails) and restaurant ID
+            <Link
+              to={"/PageDetails/" + restaurant.info.id}
+              key={restaurant.info.id}
+            >
+              <RestourantCards {...restaurant.info} />
+            </Link>
+            // {...restaurant.info} this is object destructured with this we call the data by the end value
+          ))
+        )}
       </div>
     </>
   );

@@ -31,7 +31,7 @@ const PageDetails = () => {
   //         .card?.info?.name
   //   );
   // ----------------------------------------------------------------------------------------
-
+  // this we use for the item details
   const restaurant = pageData?.cards?.[0]?.card?.card?.info;
   // Here we go to deep in the API to get the details of the Restaurants
 
@@ -40,7 +40,12 @@ const PageDetails = () => {
 
   // {/* Then we use CHAT GPT to get the data from the swiggy's API and we got it back */}
   // the below code is from CHAT GPT
+  // this we use to get the menu information
+
+  //This is for menu items
   const menuItems = [];
+  //This is for menu items price
+  const menuItemsPrice = [];
 
   const regularCards =
     pageData?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
@@ -49,8 +54,9 @@ const PageDetails = () => {
     for (const itemCard of regularCards) {
       if (itemCard?.card?.card?.itemCards) {
         for (const item of itemCard.card.card.itemCards) {
-          if (item.card?.info?.name) {
+          if (item.card?.info) {
             menuItems.push(item.card.info.name);
+            menuItemsPrice.push(item.card.info.price);
           }
         }
       }
@@ -96,6 +102,14 @@ const PageDetails = () => {
               <li key={index}>{itemName}</li>
             ))}
           </ul>
+          {/* In this way we got the menu items with price information */}
+          {/* <ul>
+            {menuItems.map((itemName, index) => (
+              <li key={index}>
+                {itemName} - {menuItemsPrice[index]}
+              </li>
+            ))}
+          </ul> */}
         </div>
       </div>
     </>
