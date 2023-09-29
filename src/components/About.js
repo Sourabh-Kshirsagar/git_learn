@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 // if we have to call the ProfileComponent directly without going with the route /about/profile then use this directly
-import ProfileComponent from "./ProfileComponent";
+// import ProfileComponent from "./ProfileComponent";
 
 const About = () => {
   return (

@@ -34,6 +34,7 @@ const appRoute = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        // Here we use nested children
         children: [
           {
             // if we wrote /profile then it will consider it like localhost:1234/profile and throw error
