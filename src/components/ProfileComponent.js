@@ -28,18 +28,18 @@ class ProfileComponent extends React.Component {
       name: "akshay",
       lastname: "sainy",
     };
-    console.log("constructor called");
+    console.log("Child - Constructor called" + this.props.name);
     //crete state variable Here as this is called initially
   }
   // componentDidMount is the method which is on the place of useEffect
   // this is as similar as useEffect to call the API
   componentDidMount() {
-    // best place to make an API call
-    console.log("ComponentDid Mount will called");
+    // best place to make an API call because this will call after render method
+    console.log("Child - ComponentDid Mount will called" + this.props.name);
   }
   // The class based component have an important method render to bind the things on UI
   render() {
-    console.log("Render called");
+    console.log("Child - Render called" + this.props.name);
     //    After calling this method we have return the JSX element this is the only difference in class and
     //     function based component
     // IN this way we destructure the count or the state variable
