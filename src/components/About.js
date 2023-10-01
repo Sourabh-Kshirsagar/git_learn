@@ -42,7 +42,9 @@ class About extends React.Component {
         {/* In this way ProfileComponent loads everytime whenever the route is localhost:1234/about
       <ProfileComponent/> */}
         <ProfileComponent name={"First child"} />
-        <ProfileComponent name={"Second Child"} />
+        {/* <ProfileComponent name={"Second Child"} /> */}
+
+        {/* This way we pass the props to Fn componennt */}
         {/* <ProfileComponentFunctional name={"Fn. Comp. Props"} /> */}
       </>
     );
