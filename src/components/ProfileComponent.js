@@ -108,3 +108,15 @@ class ProfileComponent extends React.Component {
 }
 
 export default ProfileComponent;
+
+// React life cycle Diagram
+// https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+// child constructor Called
+// child render called
+// ComponentDid Mount will called
+// API data Will logged
+// render called
+// componentDidUpdate called
+// after changing the page
+// componentWillUnmount called

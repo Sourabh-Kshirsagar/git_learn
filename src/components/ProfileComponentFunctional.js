@@ -8,7 +8,7 @@ const ProfileComponentFunctional = (props) => {
     }, 1000);
 
     console.log("useEffect called");
-    //  and we have return function to clean up the code of use Effect
+    //  and we have return function to clean up the code of use Effect this is as similar as componentwillunmount code
     return () => {
       clearInterval(timer);
       console.log("Use Effect return called");
