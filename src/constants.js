@@ -1,6 +1,8 @@
 export const IMG_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_120,h_120,c_fit/";
 
+export const FETCH_API_URL =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.7616375&lng=75.8893399&restaurantId=";
 export const restro = [
   {
     albumId: 1,

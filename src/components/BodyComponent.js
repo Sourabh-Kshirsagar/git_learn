@@ -4,6 +4,7 @@ import RestourantCards from "./RestourantCards";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import PageDetails from "./PageDetails";
+import { filterData } from "../utils/helper";
 
 const BodyComponent = () => {
   const [searchTxt, setSearchTxt] = useState("");
@@ -23,13 +24,6 @@ const BodyComponent = () => {
         ?.restaurants;
     setAllRestroData(restaurantsData);
     setFilteredRestroData(restaurantsData);
-  }
-
-  function filterData(searchText, allRestroData) {
-    const filteredData = allRestroData.filter((rest) =>
-      rest?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
-    );
-    return filteredData;
   }
 
   return (

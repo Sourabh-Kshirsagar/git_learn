@@ -1,23 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_URL } from "../constants";
+import useRestaurant from "../utils/useRestaurant";
+
 const PageDetails = () => {
   const { SID } = useParams();
+  // Here we called our custom hook to get the reataurant details and menu data
+  const pageData = useRestaurant(SID);
 
-  const [pageData, setpageData] = useState(null);
-  useEffect(() => {
-    getPageData();
-  }, []);
+  // const [pageData, setpageData] = useState(null);
 
-  async function getPageData() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.7616375&lng=75.8893399&restaurantId=" +
-        SID
-    );
-    const json = await data.json();
-    setpageData(json.data);
-    console.log(json.data);
-  }
   const restaurant = pageData?.cards?.[0]?.card?.card?.info;
   const menuItems = [];
   const menuItemsPrice = [];
