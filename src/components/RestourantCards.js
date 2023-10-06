@@ -11,10 +11,10 @@ const RestourantCards = ({
 }) => {
   return (
     <>
-      <div className="row col-sm-12 col-lg-6 col-md-6 mb-3">
+      <div className>
         <div className="card card-style">
           <img
-            className="card-img-top mt-3"
+            className="card-img-top img-height"
             src={IMG_URL + cloudinaryImageId}
             alt="Card image cap"
           />

@@ -3,7 +3,7 @@ import { FETCH_API_URL } from "../constants";
 
 // Here we created Hook which is used to fetch the data from the API and set in to the useRestaurant method
 const useRestaurant = (SID) => {
-  const [pageData, setpageData] = useState();
+  const [pageData, setpageData] = useState(null);
   useEffect(() => {
     getPageData();
   }, []);

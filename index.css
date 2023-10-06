@@ -15,8 +15,15 @@
   display: flex;
   flex-wrap: wrap;
 }
+.img-height {
+  width: 15rem;
+  height: 15rem;
+}
 .Align_Data div {
+  width: 15rem;
   margin-right: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0rem;
 }
 .mr-3 {
   margin-right: 15px;

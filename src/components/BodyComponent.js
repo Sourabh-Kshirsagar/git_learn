@@ -26,7 +26,18 @@ const BodyComponent = () => {
     setFilteredRestroData(restaurantsData);
   }
 
-  return (
+  const offline = false;
+  if (offline) {
+    return (
+      <>
+        <h2>Check Your INTERNET Connection</h2>
+        <h3>You are OFFLINE Now !!</h3>
+      </>
+    );
+  }
+  return allRestroData.length == 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="container">
         <div className="row mb-3">
