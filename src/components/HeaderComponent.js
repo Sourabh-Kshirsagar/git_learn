@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const loggedinUserr = () => {
   //Authentication API called Here
@@ -8,12 +9,13 @@ const loggedinUserr = () => {
 };
 
 const HeaderComponent = () => {
+  const isOnline = useOnline();
   const [isLoggedIn, setisLoggedIn] = useState("false");
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="index.html">
+          <a className="navbar-brand" href="/">
             <img
               className="logo-width"
               src="https://intelliatechcom33628.zapwp.com/q:u/r:0/wp:1/w:1/u:https://intelliatech.com/wp-content/uploads/2023/07/logo-scaled.jpg"
@@ -51,13 +53,14 @@ const HeaderComponent = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">
-                  Disabled
-                </a>
+                <Link className="nav-link" to="/instamart">
+                  Instamart
+                </Link>
               </li>
             </ul>
           </div>
         </div>
+        <h3>{isOnline ? "✅" : "🔴"}</h3>
         {isLoggedIn ? (
           <button
             className="btn btn-primary"

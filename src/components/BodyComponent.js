@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import PageDetails from "./PageDetails";
 import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const BodyComponent = () => {
   const [searchTxt, setSearchTxt] = useState("");
@@ -26,8 +27,11 @@ const BodyComponent = () => {
     setFilteredRestroData(restaurantsData);
   }
 
-  const offline = false;
-  if (offline) {
+  const isOnline = useOnline();
+
+  // this if condition is known as early return in react
+  // if this conditon not matched then retun will not work
+  if (!isOnline) {
     return (
       <>
         <h2>Check Your INTERNET Connection</h2>
