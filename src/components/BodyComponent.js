@@ -28,9 +28,6 @@ const BodyComponent = () => {
   }
 
   const isOnline = useOnline();
-
-  // this if condition is known as early return in react
-  // if this conditon not matched then retun will not work
   if (!isOnline) {
     return (
       <>
