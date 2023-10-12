@@ -67,3 +67,11 @@ const appRoute = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRoute} />);
+
+// Theory:
+// - Explore all the ways of writing css.
+// - How do we configure tailwind?
+// - In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?
+// - Why do we have .postcssrc file?
+// Coding:
+// - Configure Tailwind and try to build your whole app using tailwind.
