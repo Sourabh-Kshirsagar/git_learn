@@ -7,7 +7,7 @@ import PageDetails from "./PageDetails";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 
-const BodyComponent = () => {
+const BodyComponent = ({ user }) => {
   const [searchTxt, setSearchTxt] = useState("");
   const [allRestroData, setAllRestroData] = useState([]);
   const [filteredRestroData, setFilteredRestroData] = useState([]);
@@ -70,7 +70,8 @@ const BodyComponent = () => {
               to={"/PageDetails/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              <RestourantCards {...restaurant.info} />
+              {/* props drilling example user={user} */}
+              <RestourantCards {...restaurant.info} user={user} />
             </Link>
           ))
         )}

@@ -8,6 +8,7 @@ const RestourantCards = ({
   locality,
   areaName,
   avgRatingString,
+  user,
 }) => {
   return (
     <>
@@ -38,6 +39,9 @@ const RestourantCards = ({
               <b>Restaurant Ratings - </b>
               {avgRatingString} Stars
             </p>
+
+            {/* props drilling example */}
+            <p>{user.name}</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { Component, Suspense, lazy } from "react";
+import React, { Component, Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.css";
@@ -14,6 +14,11 @@ import { Shimmer } from "react-shimmer";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
+  // local state variable props drilling example
+  const [user, setUser] = useState({
+    name: "Satish Kumar",
+    Email: "satish.kumar@gmail.com",
+  });
   return (
     <>
       <HeaderComponent />
@@ -31,7 +36,15 @@ const appRoute = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <BodyComponent />,
+        element: (
+          <BodyComponent
+            // props drilling example user
+            user={{
+              name: "Props Drilling",
+              Email: "satish.kumar@gmail.com",
+            }}
+          />
+        ),
       },
       {
         path: "/about",
@@ -67,11 +80,3 @@ const appRoute = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRoute} />);
-
-// Theory:
-// - Explore all the ways of writing css.
-// - How do we configure tailwind?
-// - In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?
-// - Why do we have .postcssrc file?
-// Coding:
-// - Configure Tailwind and try to build your whole app using tailwind.
