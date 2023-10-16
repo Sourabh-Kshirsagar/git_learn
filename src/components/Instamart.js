@@ -1,98 +1,107 @@
-// import { useState } from "react";
+import { useState } from "react";
 
-// const Section = ({ title, description, isVisible, setIsVisible }) => {
-//   return (
-//     <>
-//       <div className="border-0">
-//         <h3>{title}</h3>
-//         {isVisible ? (
-//           <button
-//             onClick={() => {
-//               setIsVisible(false);
-//             }}
-//           >
-//             Hide
-//           </button>
-//         ) : (
-//           <button
-//             onClick={() => {
-//               setIsVisible(true);
-//             }}
-//           >
-//             Show
-//           </button>
-//         )}
+// LIFTING THE STATE UP
+const Section = ({ title, desc, isVisible, setIsVisible }) => {
+  return (
+    <>
+      <h3>{title}</h3>
+      {/* Here we created the toggler button for show and hide the things */}
+      {isVisible ? (
+        <button
+          onClick={() => {
+            setIsVisible(false);
+          }}
+        >
+          Hide
+        </button>
+      ) : (
+        <button
+          onClick={() => {
+            setIsVisible(true);
+          }}
+        >
+          Show
+        </button>
+      )}
+      {/* if isVisible is true then only the descreption is visible */}
+      {isVisible && <p>{desc}</p>}
+    </>
+  );
+};
 
-//         {isVisible && <p>{description}</p>}
-//       </div>
-//     </>
-//   );
-// };
+const Instamart = () => {
+  // If we use this then it's a huge problem bcause when we add another new compoment then again we have
+  // to define here showProfile or some thing that we create that's why we did'nt use this.
+  //   const [sectionConfig, setSectionConfig] = useState({
+  //     showAbout: true,
+  //     showTeam: false,
+  //     showCareers: true,
+  //   });
+  const [visibleSection, setVisibleSection] = useState();
+  return (
+    <>
+      {/* This component is just crated to check the functionlity for the Dynamic Import or chunking or etc */}
+      <h3>Instamart</h3>
+      <h3>Having 100's of Component</h3>
+      <br></br>
+      <br></br>
 
-// const Instamart = () => {
-//   const [sectionConfig, setSectionConfig] = useState({
-//     showAbout: true,
-//     showTeam: false,
-//     showCareer: false,
-//   });
-//   return (
-//     <>
-//       {/* This component is just crated to check the functionlity for the Dynamic Import or chunking or etc */}
-//       <h3>Instamart</h3>
-//       <h3>Having 100's of Component</h3>
-//       <br></br>
-//       <br></br>
-//       <div>
-//         {/* //Here all the section have different states and different props for all the component */}
-//         {/* it is like different version of sections at each and every time */}
-//         <Section
-//           title={"About InstaMart"}
-//           description={
-//             "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."
-//           }
-//           isVisible={sectionConfig.showAbout}
-//           setIsVisible={() =>
-//             setSectionConfig({
-//               showAbout: true,
-//               showTeam: false,
-//               showCareer: false,
-//             })
-//           }
-//         />
-
-//         <Section
-//           title={"Team InstaMart"}
-//           description={
-//             "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."
-//           }
-//           isVisible={sectionConfig.showTeam}
-//           setIsVisible={() =>
-//             setSectionConfig({
-//               showAbout: false,
-//               showTeam: true,
-//               showCareer: false,
-//             })
-//           }
-//         />
-
-//         <Section
-//           title={"Careers InstaMart"}
-//           description={
-//             "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."
-//           }
-//           isVisible={sectionConfig.showCareer}
-//           setIsVisible={() =>
-//             setSectionConfig({
-//               showAbout: false,
-//               showTeam: false,
-//               showCareer: true,
-//             })
-//           }
-//         />
-//       </div>
-//     </>
-//   );
-// };
-// export default Instamart;
-
-// THE WHOLE CODE IS THE VERY BAD WAY TO DO LIFTING UP THE STATE
+      {/* - */}
+      <Section
+        title={"About Instamart"}
+        desc={
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+        // If we use this then it's a huge problem bcause when we add another new compoment then again we have
+        // to define here showProfile or some thing that we create that's why we did'nt use this.
+        // isVisible={sectionConfig.showAbout}
+        isVisible={visibleSection == "about"}
+        setIsVisible={() =>
+          //   setSectionConfig({
+          //     showAbout: true,
+          //     showTeam: false,
+          //     showCareers: false,
+          //   })
+          setVisibleSection("about")
+        }
+      />
+      <Section
+        title={"Team Instamart"}
+        desc={
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+        // If we use this then it's a huge problem bcause when we add another new compoment then again we have
+        // to define here showProfile or some thing that we create that's why we did'nt use this.
+        // isVisible={sectionConfig.showTeam}
+        isVisible={visibleSection == "team"}
+        setIsVisible={() =>
+          //   setSectionConfig({
+          //     showAbout: false,
+          //     showTeam: true,
+          //     showCareers: false,
+          //   })
+          setVisibleSection("team")
+        }
+      />
+      <Section
+        title={"Careers Instamart"}
+        desc={
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+        // If we use this then it's a huge problem bcause when we add another new compoment then again we have
+        // to define here showProfile or some thing that we create that's why we did'nt use this.
+        // isVisible={sectionConfig.showCareers}
+        isVisible={visibleSection == "careers"}
+        setIsVisible={() =>
+          //   setSectionConfig({
+          //     showAbout: false,
+          //     showTeam: false,
+          //     showCareers: true,
+          //   })
+          setVisibleSection("careers")
+        }
+      />
+    </>
+  );
+};
+export default Instamart;
