@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { IMG_URL } from "../constants";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const RestourantCards = ({
   name,
@@ -8,8 +10,11 @@ const RestourantCards = ({
   locality,
   areaName,
   avgRatingString,
-  user,
+  // get the userPD from Body Component to show props Drilling
+  userPD,
 }) => {
+  // user form context
+  const { user } = useContext(UserContext);
   return (
     <>
       <div className>
@@ -41,7 +46,11 @@ const RestourantCards = ({
             </p>
 
             {/* props drilling example */}
-            <p>{user.name}</p>
+            <p>{userPD.name}</p>
+            {/* this is the user form context */}
+            <p>
+              {user.name} - {user.email}
+            </p>
           </div>
         </div>
       </div>

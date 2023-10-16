@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import RestourantCards from "./RestourantCards";
 import Shimmer from "./Shimmer.js";
@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 import PageDetails from "./PageDetails";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
-const BodyComponent = ({ user }) => {
+const BodyComponent = ({ userPD }) => {
   const [searchTxt, setSearchTxt] = useState("");
   const [allRestroData, setAllRestroData] = useState([]);
   const [filteredRestroData, setFilteredRestroData] = useState([]);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     getRestro();
@@ -49,6 +51,15 @@ const BodyComponent = ({ user }) => {
             value={searchTxt}
             onChange={(e) => setSearchTxt(e.target.value)}
           />
+          <input
+            value={user.name}
+            onChange={(e) =>
+              setUser({
+                name: e.target.value,
+                email: "gmail.com",
+              })
+            }
+          />
           <button
             className="btn w-25 mt-5 btn-primary ml-2"
             type="button"
@@ -71,7 +82,7 @@ const BodyComponent = ({ user }) => {
               key={restaurant.info.id}
             >
               {/* props drilling example user={user} */}
-              <RestourantCards {...restaurant.info} user={user} />
+              <RestourantCards {...restaurant.info} userPD={userPD} />
             </Link>
           ))
         )}

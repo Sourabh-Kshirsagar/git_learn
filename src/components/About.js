@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import ProfileComponentFunctional from "./ProfileComponentFunctional";
 import ProfileComponent from "./ProfileComponent";
 import React from "react";
+import UserContext from "../utils/UserContext";
 // const About = () => {
 //   return (
 //     <>
@@ -26,6 +27,10 @@ class About extends React.Component {
   render() {
     return (
       <>
+        {/* In this way we used the userContext in class based components as a component
+      and this component return a funtion with userContext value */}
+        <UserContext>{({ user }) => <h3>{user.name}</h3>}</UserContext>
+
         <h2>About Us Page</h2>
         <p>This is the Section for About Us page.</p>
         <ProfileComponent name={"First child"} />

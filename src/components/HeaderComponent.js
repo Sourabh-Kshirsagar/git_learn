@@ -1,7 +1,10 @@
 import "bootstrap/dist/css/bootstrap.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
+// we have to import the useContext to use the userContext ↑
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 const loggedinUserr = () => {
   //Authentication API called Here
@@ -9,6 +12,9 @@ const loggedinUserr = () => {
 };
 
 const HeaderComponent = () => {
+  // Here we bind the useContext with the UserContext to get the data from UserContext
+  const { user } = useContext(UserContext);
+
   const isOnline = useOnline();
   const [isLoggedIn, setisLoggedIn] = useState("false");
   return (
@@ -58,6 +64,8 @@ const HeaderComponent = () => {
                 </Link>
               </li>
             </ul>
+            {/* Use the userContext data */}
+            <p>{user.name}</p>
           </div>
         </div>
         <h3>{isOnline ? "✅" : "🔴"}</h3>

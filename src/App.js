@@ -11,19 +11,30 @@ import Contact from "./components/Contact";
 import PageDetails from "./components/PageDetails";
 import ProfileComponent from "./components/ProfileComponent";
 import { Shimmer } from "react-shimmer";
+import UserContext from "./utils/UserContext";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
   // local state variable props drilling example
   const [user, setUser] = useState({
     name: "Satish Kumar",
-    Email: "satish.kumar@gmail.com",
+    email: "satish.kumar@gmail.com",
   });
+
   return (
     <>
-      <HeaderComponent />
-      <Outlet />
-      <FooterComponent />
+      {/* If we don't put the HeaderComponent inside usecontext then HeaderComponentwill take the previouus value of the 
+    usercontext that is dummy name and dummy email id 
+
+    to get the updated value we put all the things inside userContext
+      <HeaderComponent /> */}
+      {/* we wrapedup the userContext.provider with header outlet and footer because we want user data everywhere in our app  */}
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <HeaderComponent />
+        <Outlet />
+        <FooterComponent />
+      </UserContext.Provider>
+      ;
     </>
   );
 };
@@ -39,7 +50,7 @@ const appRoute = createBrowserRouter([
         element: (
           <BodyComponent
             // props drilling example user
-            user={{
+            userPD={{
               name: "Props Drilling",
               Email: "satish.kumar@gmail.com",
             }}
