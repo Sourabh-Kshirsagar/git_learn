@@ -9,4 +9,6 @@ const UserContext = createContext({
   },
 });
 
+// In this way we define the name for the UserContext which will show in the React Developer tool
+UserContext.displayName = "UserContext";
 export default UserContext;

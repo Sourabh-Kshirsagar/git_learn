@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PageDetails from "./PageDetails";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+// This file is created by developer
 import UserContext from "../utils/UserContext";
 
 const BodyComponent = ({ userPD }) => {
@@ -51,12 +52,24 @@ const BodyComponent = ({ userPD }) => {
             value={searchTxt}
             onChange={(e) => setSearchTxt(e.target.value)}
           />
+          {/* This input boxes is just used to chanage the context value on the go */}
+          {/* In this we change the name only */}
           <input
             value={user.name}
             onChange={(e) =>
               setUser({
+                ...user,
                 name: e.target.value,
-                email: "gmail.com",
+              })
+            }
+          />
+          {/* In this we change the email only */}
+          <input
+            value={user.email}
+            onChange={(e) =>
+              setUser({
+                ...user,
+                email: e.target.value,
               })
             }
           />
