@@ -12,6 +12,10 @@ import PageDetails from "./components/PageDetails";
 import ProfileComponent from "./components/ProfileComponent";
 import { Shimmer } from "react-shimmer";
 import UserContext from "./utils/UserContext";
+// the provider is coming form the react-redux
+import { Provider } from "react-redux";
+// import the store form utils to provide to the provider from which it will connect to the app and the redux store
+import store from "./utils/store";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
@@ -22,14 +26,18 @@ const AppLayout = () => {
   });
 
   return (
-    <>
+    // As we are using redux in our application hence to provide the things form the redux store
+    // we provide the state in our application this is done by the Provider.
+
+    // with this provider we take the data from this anywhere in the app
+    <Provider store={store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <HeaderComponent />
         <Outlet />
         <FooterComponent />
       </UserContext.Provider>
       ;
-    </>
+    </Provider>
   );
 };
 
