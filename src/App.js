@@ -23,12 +23,6 @@ const AppLayout = () => {
 
   return (
     <>
-      {/* If we don't put the HeaderComponent inside usecontext then HeaderComponentwill take the previouus value of the 
-    usercontext that is dummy name and dummy email id 
-
-    to get the updated value we put all the things inside userContext
-      <HeaderComponent /> */}
-      {/* we wrapedup the userContext.provider with header outlet and footer because we want user data everywhere in our app  */}
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <HeaderComponent />
         <Outlet />
@@ -79,7 +73,6 @@ const appRoute = createBrowserRouter([
       {
         path: "/instamart",
         element: (
-          // any JSX is also put in the fallback
           <Suspense fallback={<Shimmer />}>
             <Instamart />
           </Suspense>
@@ -91,9 +84,3 @@ const appRoute = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRoute} />);
-
-// Theory:
-// - What is prop drilling?
-// - What is lifting the state up?
-// - What is Context Provider and Context Consumer?
-// - If you don't pass a value to the provider does it take the default value?
