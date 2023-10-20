@@ -16,6 +16,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 // import the store form utils to provide to the provider from which it will connect to the app and the redux store
 import store from "./utils/store";
+import Cart from "./components/cart";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
@@ -85,6 +86,10 @@ const appRoute = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

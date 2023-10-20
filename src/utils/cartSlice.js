@@ -34,6 +34,6 @@ const cartSlice = createSlice({
 export const { addItem, removeItem, clearCart } = cartSlice.actions;
 
 // this is the reducer not reducers this is given by the redux toolkit
-export default createSlice.reducer;
+export default cartSlice.reducer;
 
 // NOW THIS SLICE WILL BE GO INTO OUT STORE!!!

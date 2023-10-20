@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_URL } from "../constants";
 import useRestaurant from "../utils/useRestaurant";
+import { addItem } from "../utils/cartSlice";
+// We have useDispatch to provide the payload to update the store
+import { useDispatch } from "react-redux";
 
 const PageDetails = () => {
   const { SID } = useParams();
@@ -29,6 +32,20 @@ const PageDetails = () => {
       }
     }
   }
+  // useDispatch is the hook
+  const dispatch = useDispatch();
+  // on click of the button we call this function which is used toString
+  // dispatch the payload and update the slice of our store
+  const handleAddItem = () => {
+    dispatch(addItem("House"));
+  };
+
+  // Now we are add the menu items in store with the food name for this we have a
+  // function addFoodItem and we call it here
+
+  const addFoodItem = (itemName) => {
+    dispatch(addItem(itemName));
+  };
   return (
     <>
       <div className="D-flex">
@@ -43,11 +60,19 @@ const PageDetails = () => {
           <h5>Cost for Two : {restaurant?.costForTwoMessage}</h5>
           <h5>Avg Rating String : {restaurant?.avgRatingString}</h5>
         </div>
+        <div>
+          <button className="btn btn-primary" onClick={() => handleAddItem()}>
+            Add Items
+          </button>
+        </div>
         <div className="menu-items">
           <h4>Menu Items</h4>
           <ul>
             {menuItems.map((itemName, index) => (
-              <li key={index}>{itemName}</li>
+              <li key={index}>
+                {itemName} -{" "}
+                <button onClick={() => addFoodItem(itemName)}>Add</button>
+              </li>
             ))}
           </ul>
         </div>

@@ -6,15 +6,19 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
 
+// To connect the redux with react we have useSelector
+import { useSelector } from "react-redux";
+
 const loggedinUserr = () => {
   //Authentication API called Here
   return false;
 };
 
 const HeaderComponent = () => {
-  // Here we bind the useContext with the UserContext to get the data from UserContext
   const { user } = useContext(UserContext);
-
+  // Here we use useSelector The job of this is to give access to our Redux Store
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   const isOnline = useOnline();
   const [isLoggedIn, setisLoggedIn] = useState("false");
   return (
@@ -61,6 +65,13 @@ const HeaderComponent = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/instamart">
                   Instamart
+                </Link>
+              </li>
+              {/* Here we use the cartItems to get the length of the items which are in redux store */}
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/cart">
+                  Cart - {cartItems.length} Items
                 </Link>
               </li>
             </ul>
