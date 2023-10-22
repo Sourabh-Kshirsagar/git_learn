@@ -16,7 +16,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 // import the store form utils to provide to the provider from which it will connect to the app and the redux store
 import store from "./utils/store";
-import Cart from "./components/cart";
+import Cart from "./components/Cart";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
@@ -97,3 +97,12 @@ const appRoute = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRoute} />);
+
+// Theory:
+// - useContext vs Redux.
+// - Advantage of using Redux Toolkit over Redux.
+// - Explain Dispatcher.
+// - Explain Reducer.
+// - Explain slice.
+// - Explain selector.
+// - Explain createSlice and the configuration it takes.
