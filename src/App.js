@@ -27,10 +27,6 @@ const AppLayout = () => {
   });
 
   return (
-    // As we are using redux in our application hence to provide the things form the redux store
-    // we provide the state in our application this is done by the Provider.
-
-    // with this provider we take the data from this anywhere in the app
     <Provider store={store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <HeaderComponent />
@@ -97,12 +93,3 @@ const appRoute = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRoute} />);
-
-// Theory:
-// - useContext vs Redux.
-// - Advantage of using Redux Toolkit over Redux.
-// - Explain Dispatcher.
-// - Explain Reducer.
-// - Explain slice.
-// - Explain selector.
-// - Explain createSlice and the configuration it takes.
