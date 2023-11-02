@@ -1,4 +1,13 @@
 {
   //   "plugins": [["transform-remove-console", { "exclude": ["error", "warn"] }]]
-  "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
+  "presets": [
+    //this line is required for the test and in test file we use import and jest doesnt know what is import
+    // to know what is import we have this
+    ["@babel/preset-env", { "targets": { "node": "current" } }],
+
+    // Now we also have test case where we have to test the compoent of the applicaiton. To test them
+    // we have to import the compoentn and use them in the test file as <headerCompoent /> but the jest
+    // does'nt understand what is this that't why we have to configure this
+    ["@babel/preset-react", { "runtime": "automatic" }]
+  ]
 }
