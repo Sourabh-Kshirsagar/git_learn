@@ -15,3 +15,10 @@ test("addition program", () => {
 // Installed jest-environnent-jsdo
 // Create my first test
 // Conigure babel in baelrc or bable.config.js file
+
+// Theory:
+
+// What are different types for testing?
+// What is Enzyme?
+// Enzyme vs React Testing Library
+// What is Jest and why do we use it?
